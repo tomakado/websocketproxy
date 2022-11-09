@@ -1,4 +1,4 @@
-# WebsocketProxy [![GoDoc](https://pkg.go.dev/github.com/tomakado/websocketproxy?status.svg)](https://pkg.go.dev/github.com/tomakado/websocketproxy) 
+# WebsocketProxy [![Go Reference](https://pkg.go.dev/badge/github.com/tomakado/websocketproxy.svg)](https://pkg.go.dev/github.com/tomakado/websocketproxy) 
 
 WebsocketProxy is an http.Handler interface build on top of
 [gorilla/websocket](https://github.com/gorilla/websocket) that you can plug
