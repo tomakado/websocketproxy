@@ -1,13 +1,16 @@
-# WebsocketProxy [![GoDoc](https://godoc.org/github.com/koding/websocketproxy?status.svg)](https://godoc.org/github.com/koding/websocketproxy) [![Build Status](https://travis-ci.org/koding/websocketproxy.svg)](https://travis-ci.org/koding/websocketproxy)
+# WebsocketProxy [![GoDoc](https://pkg.go.dev/github.com/tomakado/websocketproxy?status.svg)](https://pkg.go.dev/github.com/tomakado/websocketproxy) 
 
 WebsocketProxy is an http.Handler interface build on top of
 [gorilla/websocket](https://github.com/gorilla/websocket) that you can plug
-into your existing Go webserver to provide WebSocket reverse proxy.
+into your existing Go web server to provide WebSocket reverse proxy.
+
+⚠ **NOTE:** This is a fork of library by [Koding](Koding). Original library seems abandoned. I'm going to support this
+fork, so feel free to open your issues and PRs.
 
 ## Install
 
 ```bash
-go get github.com/koding/websocketproxy
+go get github.com/tomakado/websocketproxy
 ```
 
 ## Example
@@ -22,7 +25,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/koding/websocketproxy"
+	"github.com/tomakado/websocketproxy"
 )
 
 var (
@@ -35,8 +38,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	err = http.ListenAndServe(":80", websocketproxy.NewProxy(u))
-	if err != nil {
+	if err = http.ListenAndServe(":80", websocketproxy.NewProxy(u)); err != nil {
 		log.Fatalln(err)
 	}
 }
@@ -51,4 +53,10 @@ go run proxy.go -backend ws://example.com:3000
 Now all incoming WebSocket requests coming to this server will be proxied to
 `ws://example.com:3000`
 
+## Differences with original library and TODOs
 
+* Switched to Go modules
+* TODO: integrated with GitHub Actions
+* TODO: updated tests
+* TODO: golangci-lint
+* TODO: fixed TODOs in code
